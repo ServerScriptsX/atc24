@@ -196,10 +196,9 @@ function connectWS() {
       const data = JSON.parse(msg.toString());
 console.log("RAW WS:", data);
 
-      // If socket sends aircraft object directly
-      if (typeof data === "object" && !Array.isArray(data)) {
-        processAircraftPayload(data);
-      }
+    if (data.t === "ACFT_DATA" && data.d) {
+  processAircraftPayload(data.d);
+}
 
     } catch (err) {
       log("WS parse error:", err.message);
