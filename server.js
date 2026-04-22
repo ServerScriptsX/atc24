@@ -194,6 +194,7 @@ function connectWS() {
   ws.on("message", (msg) => {
     try {
       const data = JSON.parse(msg.toString());
+console.log("RAW WS:", data);
 
       // If socket sends aircraft object directly
       if (typeof data === "object" && !Array.isArray(data)) {
