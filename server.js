@@ -100,7 +100,7 @@ function processAircraftPayload(payload) {
     const ac = payload[callsign];
     currentSeen.add(callsign);
 
-    const plan = flightPlans.get(callsign);
+   const plan = null;
 
     const merged = {
       callsign,
@@ -247,11 +247,11 @@ app.listen(PORT, () => {
 
   connectWS();
 
-  pollFlightPlans();
+ //  pollFlightPlans();
   pollControllers();
   pollATIS();
 
-  setInterval(pollFlightPlans, 10000);
+  //setInterval(pollFlightPlans, 10000);
   setInterval(pollControllers, 6000);
   setInterval(pollATIS, 15000);
 });
